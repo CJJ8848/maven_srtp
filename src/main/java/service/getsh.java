@@ -11,7 +11,8 @@ import java.util.List;
 
 public class getsh {
     public static String getsh_demo(String SHELL_FILE, String genome, String cellline,String chrom,String start,String end,String strand) throws IOException, InterruptedException {
-        String bashCommand = "sh " + SHELL_FILE + " "+genome+" " + cellline+ " "+chrom+ " "+start+ " "+end+ " "+strand;
+        String strsh = genome+" "+cellline+" "+chrom+" "+start+" "+end+" "+strand;
+        String bashCommand = "sshpass -p 1433997922Bb ssh jiahui@10.109.92.2"+" bash " + SHELL_FILE +" "+strsh;
 //            String bashCommand = "chmod 777 " + "/usr/local/java/jdk1.8.0_121/lib/stopffmpeg.sh" ;
 //            String bashCommand = "kill -9" + ip;
         System.out.println(bashCommand);

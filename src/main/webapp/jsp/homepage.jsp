@@ -62,15 +62,15 @@
         </div>
         <a href="<%=request.getContextPath()%>/jsp/homepage.jsp" class="tab enabled">crispra</a>
         <a href="<%=request.getContextPath()%>/jsp/homepage_i.jsp" class="tab disabled">crispri</a>
-        <form action="<%=request.getContextPath()%>/ah_info" method="post" class="smart-green" style="margin-top: 5%">
+        <form action = "<%=request.getContextPath()%>/ah_info" method="post" class="smart-green" style="margin-top: 5%">
             <h1> Binding Force Prediction
                 <span>Please fill all the texts in the fields.</span>
             </h1>
             <label>
                 <span>The genome :</span>
                 <select name = "genome">
-                    <option value="Human hg19 (GRCh37)">Human hg19 (GRCh37)</option>
-                    <option value="Human hg38 (GRCh38)">Human hg38 (GRCh38)</option>
+                    <option value="hg19">Human hg19 (GRCh37)</option>
+                    <option value="hg38)">Human hg38 (GRCh38)</option>
                 </select>
             </label>
             <label>
@@ -85,7 +85,7 @@
 
             <label>
                 <span>The coordinate :</span>
-                <textarea class="form-control" name="site" placeholder="chrom，start，end，strand" rows="3"></textarea>
+                <textarea class="form-control" name="site" placeholder="chr,start,end,strand   e.g. chr22,39916226,39916325,+" rows="3"></textarea>
             </label>
             <label>
                 <span>&nbsp;</span>

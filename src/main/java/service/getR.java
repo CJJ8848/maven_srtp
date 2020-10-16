@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class getR {
-    public static String getR_demo(String R_FILE, String args1) throws IOException, InterruptedException {
-        String bashCommand = "Rscript " + R_FILE + " "+args1;
+    public static String getR_demo(String R_FILE, String args1, String args2, String args3, String args4, String args5, String args6) throws IOException, InterruptedException {
+        String bashCommand = "Rscript " + R_FILE + " "+args1+ " "+args2+ " "+args3+ " "+args4+ " "+args5+ " "+args6;
 //            String bashCommand = "chmod 777 " + "/usr/local/java/jdk1.8.0_121/lib/stopffmpeg.sh" ;
 //            String bashCommand = "kill -9" + ip;
         System.out.println(bashCommand);

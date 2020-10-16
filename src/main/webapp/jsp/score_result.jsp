@@ -10,16 +10,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>homepage</title>
+
+    <title>score_result</title>
+    <script src="<%=request.getContextPath()%>/loading.js"></script>
     <!-- Bootstrap -->
     <link href="<%=request.getContextPath()%>/static/bootstrap/css/bootstrap.css" rel="stylesheet">
     <script src="<%=request.getContextPath()%>/static/jquery/jquery-3.4.1.js"></script>
     <script src="<%=request.getContextPath()%>/static/bootstrap/js/bootstrap.js"></script>
     <!-- Custom styles for this template -->
     <link href="<%=request.getContextPath()%>/static/css/contact.css" rel="stylesheet">
+
+
 </head>
 <body>
-<div style="font-size: 1.5rem;">
+
+<div class="content" style="font-size: 1.5rem;">
     <jsp:include page="nav.jsp"/>
     <jsp:include page="header.jsp"/>
     <main class="container" role="main" style="margin-bottom: 150px;padding: 20px">
@@ -37,13 +42,14 @@
             <div>The cell line : ${cellline} </div><br>
         </div>
         <div style="padding-top: 20px"><h2>
-            Feature values
+            Feature values (log10)
         </h2>
             <br>
         </div>
         <c:if test="${species == 'Human'}">
             <c:forEach items="${nextlinelist}" var="item">
             <br>
+                <div>The sequence : ${item[23]} </div><br>
             <div>The coordinate : ${item[5]},${item[6]},${item[7]},${item[8]} </div><br>
             <div class="table-responsive">
                     <table class="table table-striped table-sm table-bordered">
@@ -119,6 +125,7 @@
         <c:if test="${species == 'Human'}">
             <c:forEach items="${nextlinelist}" var="item">
                 <br>
+                <div>The sequence : ${item[23]} </div><br>
                 <div>The coordinate : ${item[5]},${item[6]},${item[7]},${item[8]} </div><br>
                 <div class="table-responsive">
                     <table class="table table-striped table-sm table-bordered">
@@ -141,6 +148,15 @@
                         </tr>
                         </tbody>
                     </table>
+                </div>
+                <div>
+                    <div>
+                        The score histogram:
+                        <br>
+                        <br>
+                        <br>
+
+                    <img  src="<%=request.getContextPath()%>/plots/Scores_ ${start} .png"/>
                 </div>
             </c:forEach>
         </c:if>
@@ -172,5 +188,16 @@
 
     <jsp:include page="tail.jsp"/>
 </div>
+<script type="text/javascript">
+    window.onload = function() {
+        setTimeout(function () {
+            var loader = document.getElementsByClassName("loader")[0];
+            loader.className = "loader fadeout";//使用渐隐的方法淡出loading page
+            setTimeout(function () {
+                loader.style.display = "none"
+            }, 1000)
+        }, 1000)//强制显示loading page 1s
+    }
+</script>
 </body>
 </html>
